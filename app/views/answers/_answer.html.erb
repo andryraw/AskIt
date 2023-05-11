@@ -1,0 +1,13 @@
+<time datetime="<%= answer.formated_created_at %>">
+  <%= answer.formated_created_at %>
+</time>
+
+<div>
+  <%= sanitize answer.body %>
+</div>
+
+<p>
+  <%= link_to 'Edit', edit_question_answer_path(question, answer) %> |
+  <%= link_to 'Destroy', question_answer_path(question, answer),
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+</p>

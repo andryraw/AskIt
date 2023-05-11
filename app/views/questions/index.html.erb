@@ -1,0 +1,22 @@
+<% provide :page_title, "Questions" %>
+
+<h1>Questions</h1>
+
+<% @questions.each do |question| %>
+  <h2><%= question.title %></h2>
+
+  <time datetime="<%= question.formated_created_at %>">
+  <%=question.formated_created_at %>
+  </time>
+
+  <p>
+    <%= truncate strip_tags(question.body), length: 100 %></p>
+    <br>
+    <%= link_to 'Show', question_path(question) %> |
+    <%= link_to 'Edit', edit_question_path(question) %> |
+    <%= link_to 'Destroy', question_path(question), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+<% end %>
+
+<p>
+  <%= paginate @questions %>
+</p>

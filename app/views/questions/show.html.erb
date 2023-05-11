@@ -1,0 +1,18 @@
+<% provide :page_title, "Show question" %>
+
+<h1><%= @question.title %></h1>
+
+<time datetime="<%= @question.formated_created_at %>">
+  <%= @question.formated_created_at %>
+</time>
+<br>
+
+<div>
+  <%= sanitize @question.body %>
+</div>
+
+<%= render 'answers/form' %>
+
+<h2>Answers</h2>
+
+<%= render partial: 'answers/answer', collection: @answers, locals: {question: @question} %>
