@@ -1,0 +1,25 @@
+<%= render 'shared/errors', object: @user %>
+
+<%= form_with model: @user do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email, required: true, placeholder: 'E-mail' %>
+  </div><br>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_area :name, required: true, placeholder: 'Name' %>
+  </div><br>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div><br>
+
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div><br>
+
+  <%= f.submit "Register!" %>
+<% end %>
