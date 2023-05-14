@@ -4,9 +4,12 @@
       <li><%= link_to 'Home', root_path %></li>
       <li><%= link_to 'Questions', questions_path %></li>
       <% if user_singed_in? %>
-        <%= current_user.name %>
+        <%= current_user.name_or_email %>
+        <li><%= link_to 'Edit profile', edit_user_path(current_user) %></li>
+        <li><%= link_to 'Log Out', session_path, data: { turbo_method: :delete } %></li>
       <% else %>
-        <li><%= link_to 'Sign up', new_user_path %></li>
+        <li><%= link_to 'Sign Up', new_user_path %></li>
+        <li><%= link_to 'Log In', new_session_path %></li>
       <% end %>
     </ul>
   </nav>

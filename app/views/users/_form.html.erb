@@ -8,8 +8,15 @@
 
   <div>
     <%= f.label :name %>
-    <%= f.text_area :name, required: true, placeholder: 'Name' %>
+    <%= f.text_area :name, placeholder: 'Name' %>
   </div><br>
+
+  <% unless @user.new_record? %>
+    <div>
+      <%= f.label :old_password %>
+      <%= f.password_field :old_password %>
+    </div><br>
+  <% end %>
 
   <div>
     <%= f.label :password %>
@@ -21,5 +28,5 @@
     <%= f.password_field :password_confirmation %>
   </div><br>
 
-  <%= f.submit "Register!" %>
+  <%= f.submit (@user.new_record? ? "Register!" : "Save") %>
 <% end %>

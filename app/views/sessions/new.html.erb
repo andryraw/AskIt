@@ -1,0 +1,15 @@
+<% provide :page_title, "Log In" %>
+
+<%= form_with url: session_path do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email, required: true, placeholder: 'E-mail' %>
+  </div><br>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div><br>
+
+  <%= f.submit "Sing In!" %>
+<% end %>
